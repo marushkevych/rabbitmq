@@ -1,4 +1,4 @@
-package workqueues;
+package springworkqueues;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
