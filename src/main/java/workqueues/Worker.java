@@ -8,6 +8,7 @@ import com.rabbitmq.client.QueueingConsumer;
 public class Worker {
 
   private static final String TASK_QUEUE_NAME = "task_queue";
+  private static final String EXCHANGE_NAME = "EX1";
 
   public static void main(String[] argv) throws Exception {
 
@@ -16,7 +17,10 @@ public class Worker {
     Connection connection = factory.newConnection();
     Channel channel = connection.createChannel();
     
+    channel.exchangeDeclare(EXCHANGE_NAME, "direct", true);
     channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
+    channel.queueBind(TASK_QUEUE_NAME, EXCHANGE_NAME, "");
+    
     System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
     
     channel.basicQos(1);
