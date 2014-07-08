@@ -3,7 +3,7 @@ package camel.spring;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RabbitmqToFileRoute extends RouteBuilder{
     
     @Override
