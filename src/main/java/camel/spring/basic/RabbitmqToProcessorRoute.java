@@ -1,4 +1,4 @@
-package camel.spring;
+package camel.spring.basic;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;

@@ -10,7 +10,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <context:component-scan base-package="camel.spring" />
+    <context:component-scan base-package="camel.spring.basic" />
 
     <camelContext xmlns="http://camel.apache.org/schema/spring" >
         <contextScan/>
