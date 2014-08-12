@@ -11,7 +11,7 @@ public class App {
 
         ProducerTemplate producerTemplate = (ProducerTemplate) context.getBean("producerTemplate");
         
-        String URL = "netty:tcp://localhost:1338?decoder=#FrameDecoder&encoder=#FrameEncoder";
+        String URL = "netty:tcp://192.168.6.51:1338?decoder=#FrameDecoder&encoder=#FrameEncoder";
         
         ChannelBuffer buffer = (ChannelBuffer)producerTemplate.requestBody(URL, "Hello server");
         System.out.println("Got responce: " + new String(buffer.array()));
