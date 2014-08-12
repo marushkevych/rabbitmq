@@ -1,14 +1,9 @@
 package camel.spring.tcp;
 
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.jboss.netty.buffer.ChannelBuffer;
-import org.jboss.netty.buffer.ChannelBuffers;
-import org.jboss.netty.handler.codec.frame.CorruptedFrameException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -31,7 +26,18 @@ public class SocketToProcessorRoute extends RouteBuilder{
 						
 
 						// response
-						exchange.getOut().setBody( "Hey!");
+						String responce = "<GetLoyaltyOnlineStatusResponse>"
+    +"<ResponseHeader>"
+    +"<POSLoyaltyInterfaceVersion>1.0</POSLoyaltyInterfaceVersion>"
+        +"<VendorName>Bulloch</VendorName>"
+        +"<VendorModelVersion>BULPOS</VendorModelVersion>"
+        +"<POSSequenceID>BULOSV10</POSSequenceID>"
+        +"<LoyaltySequenceID>12345</LoyaltySequenceID>"
+    +"</ResponseHeader>"
+    +"<PromptForLoyaltyFlag value=\"true\"/>"
++"</GetLoyaltyOnlineStatusResponse>";
+						
+						exchange.getOut().setBody(responce);
 					}
         			
         		}
