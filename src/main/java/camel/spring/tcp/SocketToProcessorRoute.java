@@ -16,7 +16,7 @@ public class SocketToProcessorRoute extends RouteBuilder{
     
     @Override
     public void configure() {
-        from("netty:tcp://localhost:9999?decoder=#FrameDecoder&encoder=#FrameEncoder").process(
+        from("netty:tcp://localhost:1338?decoder=#FrameDecoder&encoder=#FrameEncoder").process(
         		new Processor(){
 
 					@Override
