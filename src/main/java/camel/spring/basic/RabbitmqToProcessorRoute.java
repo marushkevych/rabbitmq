@@ -13,7 +13,6 @@ public class RabbitmqToProcessorRoute extends RouteBuilder{
     
     @Override
     public void configure() {
-        from("rabbitmq://localhost/EX1?queue=task_queue&durable=true&autoDelete=false&username=guest&password=guest").process(
         from("rabbitmq://localhost/EX1?queue=my_queue&durable=true&autoDelete=false&username=guest&password=guest")
         .setExchangePattern(ExchangePattern.InOut)
         .process(
