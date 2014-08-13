@@ -10,11 +10,27 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <context:component-scan base-package="camel.spring" />
+    <context:component-scan base-package="camel.spring.tcp" />
 
     <camelContext xmlns="http://camel.apache.org/schema/spring" >
         <contextScan/>
-        <template id="ProducerTemplate"/>
+        <template id="producerTemplate"/>  
     </camelContext>
+    
+<!-- 
+    <bean class="org.jboss.netty.handler.codec.frame.LengthFieldBasedFrameDecoder" id="FrameDecoder" >
+        <constructor-arg value="1048576"/>
+        <constructor-arg value="0"/>
+        <constructor-arg value="4"/>
+        <constructor-arg value="0"/>
+        <constructor-arg value="4"/>
+    </bean>    
+ -->    
+    
+    <bean class="camel.spring.tcp.IntegerHeaderFrameDecoder" id="FrameDecoder" >
+    </bean>    
+    
+    <bean class="camel.spring.tcp.IntegerHeaderFrameEncoder" id="FrameEncoder" >
+    </bean>    
 
 </beans>

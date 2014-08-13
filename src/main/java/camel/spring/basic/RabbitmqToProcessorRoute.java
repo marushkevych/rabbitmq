@@ -1,4 +1,4 @@
-package camel.spring;
+package camel.spring.basic;
 
 import java.util.Map;
 
